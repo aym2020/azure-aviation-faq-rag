@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.env
+
+# Streamlit
+.streamlit/config.toml
+
+# FAISS / Embeddings
+embeddings/
+*.faiss
+*.pkl
+
+# VS Code / Cursor
+.vscode/
+.history/
+
+# OS
+.DS_Store
+Thumbs.db
