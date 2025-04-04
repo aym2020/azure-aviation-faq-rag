@@ -1,9 +1,9 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="azure-aviation-faq-rag",
+    name="aviationrag",
     version="0.1",
-    packages=find_packages(include=["src", "src.*"]),
+    packages=find_packages(include=["aviationrag", "aviationrag.*"]),
     install_requires=[
         "azure-search-documents",
         "langchain",
