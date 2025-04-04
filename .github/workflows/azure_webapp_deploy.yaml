@@ -13,6 +13,9 @@ env:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    concurrency: 
+      group: deploy-${{ github.ref }}
+      cancel-in-progress: true  # Critical fix for 409 conflicts
 
     steps:
       - name: ⏬ Checkout code
@@ -22,6 +25,9 @@ jobs:
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+    
+      - name: Verify Azure Access
+        run: az webapp list --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }}
 
       - name: ⚙️ Set up Python
         uses: actions/setup-python@v4
@@ -39,3 +45,5 @@ jobs:
           app-name: ${{ secrets.AZURE_WEBAPP_NAME }}
           slot-name: production
           package: .
+          # Add explicit token for deployments
+          token: ${{ secrets.GITHUB_TOKEN }}  # Add this line
