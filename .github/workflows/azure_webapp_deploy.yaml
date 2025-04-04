@@ -43,13 +43,15 @@ jobs:
         run: |
           az webapp deployment source delete \
             --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
-            --name ${{ secrets.AZURE_WEBAPP_NAME }} \
+            --name ${{ secrets.AZURE_WEBAPP_NAME }}
 
       - name: 🚀 Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
         with:
           app-name: ${{ secrets.AZURE_WEBAPP_NAME }}
-          slot-name: production
           package: .
-          # Add explicit token for deployments
-          token: ${{ secrets.GITHUB_TOKEN }}  # Add this line
+          startup-command: |
+            python -m pip install --upgrade pip
+            pip install -r requirements.txt
+            streamlit run app/streamlit_app.py --server.port=8000 --server.enableCORS=false --server.address=0.0.0.0
+        
