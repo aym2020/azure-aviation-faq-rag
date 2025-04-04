@@ -44,7 +44,6 @@ jobs:
           az webapp deployment source delete \
             --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
             --name ${{ secrets.AZURE_WEBAPP_NAME }} \
-            --slot production
 
       - name: 🚀 Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
