@@ -1,7 +1,15 @@
 azure-search-documents
-openai
 langchain
 langchain-openai
+faiss-cpu
+openai
+pypdf
 python-dotenv
-streamlit
+langchain-community
 tiktoken
+rank_bm25
+sentence-transformers
+unstructured[pdf]
+pdfminer.six
+pi-heif
+streamlit
