@@ -50,4 +50,12 @@ jobs:
         with:
           app-name: ${{ secrets.AZURE_WEBAPP_NAME }}
           package: .
-        
+
+      - name: 🧪 Stream WebApp logs
+        if: always()
+        run: |
+            az webapp log tail \
+                --name ${{ secrets.AZURE_WEBAPP_NAME }} \
+                --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
+                --timeout 60
+    
