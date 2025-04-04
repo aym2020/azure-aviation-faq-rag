@@ -1,4 +1,4 @@
-import os
+import sys, os
 from dotenv import load_dotenv
 import streamlit as st
 from src.azure_rag_chain import search_chunks, call_openai
