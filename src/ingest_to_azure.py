@@ -1,5 +1,4 @@
 # src/ingest_to_azure.py
-
 import os
 import uuid
 import requests
