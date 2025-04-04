@@ -48,19 +48,13 @@ jobs:
         run: |
             az webapp deployment source delete \
                 --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
-                --name ${{ secrets.AZURE_WEBAPP_NAME }}
+                --name ${{ secrets.AZURE_WEBAPP_NAME }} || true
+
+      - name: ⏳ Wait to avoid SCM conflict
+        run: sleep 30
 
       - name: 🚀 Deploy to Azure Web App
-        uses: azure/webapps-deploy@v3
+        uses: azure/webapps-deploy@v4
         with:
             app-name: ${{ secrets.AZURE_WEBAPP_NAME }}
-            package: .
-            deployment-method: runFromPackage
-
-      - name: 🧪 Stream WebApp logs
-        if: always()
-        run: |
-            az webapp log tail \
-                --name web-genai-aviation \
-                --resource-group rg-genai-aviation
-    
+            package: .    
