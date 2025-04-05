@@ -1,5 +1,5 @@
 
-# 🛫 Azure Aviation FAQ Chatbot
+# Azure Aviation FAQ Chatbot
 
 ## Overview
 
@@ -101,24 +101,6 @@ streamlit run app/streamlit_app.py
 The application is configured for automatic deployment using GitHub Actions.
 
 - Push your code to the `master` branch, and the CI/CD pipeline will automatically deploy to your Azure App Service.
-
----
-
-## Troubleshooting
-
-- **`ModuleNotFoundError: No module named 'src'`**  
-  Add the following lines at the top of your `app/streamlit_app.py`:
-
-```python
-import sys, os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-```
-
----
-
-## Contributing
-
-Pull requests and feedback are welcome. For major changes, please open an issue first.
 
 ---
 
