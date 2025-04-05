@@ -104,6 +104,17 @@ The application is configured for automatic deployment using GitHub Actions.
 
 ---
 
+##  Example Questions
+
+- When can a commander extend the flight duty period?
+- What are the rest requirements after a long-haul duty?
+- What navigation systems must be operational before departure?
+- What is the operator's responsibility for fuel planning?
+
+![image](https://github.com/user-attachments/assets/0c23ec70-a88a-4252-b63a-e1824213417e)
+
+---
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
